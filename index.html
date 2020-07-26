@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="app.js" defer></script>
+        <title>Lambda Todo AH</title>
+    </head>
+    <body>
+        <h2>Minesweeper JS</h2>
+       
+<div class="clearfix">
+    <div id="game_container">
+      <!--placeholder for game -->
+    </div>
+  </div>
+  
+  <div>
+  
+  
+    <div class="status_msg">
+      <strong>Mines Remaining:</strong> <span id="mine_count"></span>
+    </div>
+    <div class="status_msg">
+      <strong>Moves Made:</strong> <span id="moves_made"></span>
+    </div>
+    <div class="status_msg">
+      <strong>Game Status:</strong> <span id="game_status"></span>
+    </div>
+  
+  
+    <div style="margin: 15px 0px;">
+      <div style="margin: 8px 0px;">
+        <label for="new_rows">Rows:</label>
+        <input type="number" id="new_rows" placeholder="rows" value="8" />
+        <label for="new_cols">Cols:</label>
+        <input type="number" id="new_cols" placeholder="cols" value="8" />
+        <label for="new_mines">Mines:</label>
+        <input type="number" id="new_mines" placeholder="mines" value="10" />
+      </div>
+      <div style="font-size: 10pt;">*max size: 19 x 19</div>
+      <input id="new_game_button" type="button" value="Create new game!" />
+    </div>
+    <div>
+      <input id="cheat_button" type="button" value="Cheat!" />
+      <div style="font-size: 10pt;">*grid layout printed to JS console</div>
+    </div>
+  </div>
+    </body>
+</html>
