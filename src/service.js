@@ -1,10 +1,9 @@
 
-import React  from 'react';
+import React,{useImperativeHandle,forwardRef}  from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 
-
-function Service (props) {
+const Service = forwardRef((props,ref)=> {
  
 //   const [count, setCount] = useState(0);
 //   const [user,setuser] = useState({
@@ -12,7 +11,7 @@ function Service (props) {
 //     password: ''
 //   });
 debugger;
-   console.log(props.user);
+//    console.log(props.user);
 
 const array = [
     { userName:'Mohit' , Pass: '123'},
@@ -20,10 +19,29 @@ const array = [
 ]
 
 
-let compare = (username) =>{
-    debugger;
-    array.find(x => x.b === username )
-}
+useImperativeHandle(ref, () => ({
+ 
+    compare(user){
+        debugger;
+        var result = array.find(obj => {
+            if (obj.userName === user.username){
+                        return obj.Pass
+            }
+                //     } obj.userName === user.username
+          })
+        // let  result = array.filter(obj => {
+        //     if (obj.userName === user.username){
+        //         return obj.Pass
+        //     }
+        //   })
+        return result
+    }
+ 
+  }));
+// let compare = (username) =>{
+//     debugger;
+//     array.find(x => x.b === username )
+// }
 
 
 
@@ -36,6 +54,6 @@ let compare = (username) =>{
           
       </div> 
   );
-}
+});
 
 export default Service;

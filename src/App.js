@@ -1,4 +1,4 @@
-import React , {useState, useEffect, useRef} from 'react';
+import React , {useState, forwardRef,useEffect, useRef} from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Service from '../src/service';
@@ -22,8 +22,15 @@ function App() {
 
   let handleSubmit=(e)=>{
     debugger;
-    let x =  textInput.current.compare(user.username);
+    let x =  textInput.current.compare(user);
+    if(x.Pass === user.password){
+      alert('Login Succesfully')
+    }
+    else{
+      alert('Login failed')
+    }
     debugger;
+
     console.log(x)
   //   const requestOptions = {
   //     method: 'POST',
