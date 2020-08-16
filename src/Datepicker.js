@@ -7,6 +7,8 @@ const KeyboardDatePickerExample=(props)=> {
 
   let ondatechange=(date)=>{
     setSelectedDate(date)
+ 
+    date.setHours(0, 0, 0, 0)
     let Updata = props.datafull;
     let name = props.row.row.original.name;
     let updatedate =date.getTime(); 

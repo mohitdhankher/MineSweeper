@@ -171,14 +171,16 @@ function App({fetchProduct}) {
    pastarr =[]; 
     futurearr =[];
    currentarr = [];
- 
+ debugger;
    data.filter(function(date) {
    
     
 
   if(date) {
     const anyTime1 = new Date(date.createdOn).getTime();
-    const currentTime1 = new Date().getTime();
+    let date1 = new Date();
+    date1.setHours(0, 0, 0, 0)
+    const currentTime1 = date1.getTime();
     
     // var dt = new Date();
     // var df = new Date(date);
@@ -202,7 +204,7 @@ function App({fetchProduct}) {
               // arr[index] = obj;
           }
     }
-    else
+    else if(currentTime1 === anyTime1)
       {
         const index = currentarr.findIndex((e) => e.name === date.name);
             
