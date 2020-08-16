@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+#main {
+   width: 80%;
+}
+.fontweigh{
+  font-weight: lighter !important;
+}
+.modalbutton{
+  margin: 2vh 23vh;
+}
