@@ -42,20 +42,35 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: 'white',
   },
+  customTabRoot: {
+    color: "#31a3c7",
+    backgroundColor: "white"
+  },
+  customTabIndicator: {
+    backgroundColor: "blue",
+    
+  },
+  active_tabStyle:{
+    fontSize:11,
+    color: 'white',
+    backgroundColor: 'red',
+    }
 }));
 const Styles = styled.div`
-  padding: 1rem;
+  // padding: 1rem;
 
   .Header {
-    background-color: lightgrey;
+    // background-color: lightgrey;
     color: #31a3c7;
   }
 
   table {
     border-spacing: 0;
-    border: 1px solid black;
+  
+    
+    // border: 1px solid black;
 
     tr {
       :last-child {
@@ -65,12 +80,17 @@ const Styles = styled.div`
       }
     }
 
-    th,
+    th{
+      background-color: lightgrey;
+      height:7vh
+     
+    }
     td {
       margin: 0;
-      padding: 0.5rem;
+      padding: 0.8rem;
+      // width:4.7rem;
       border-bottom: 1px solid black;
-      border-right: 1px solid black;
+      // border-right: 1px solid black;
 
       :last-child {
         border-right: 0;
@@ -93,22 +113,25 @@ export default function SimpleTabs(props) {
 if(counter!=''){
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static"  classes={{
+            root: classes.customTabRoot,
+            indicator: classes.customTabIndicator
+          }}>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Upcoming Campaigns" {...a11yProps(0)} />
-          <Tab label="Live Campaigns" {...a11yProps(1)} />
-          <Tab label="Past Campaigns" {...a11yProps(2)} />
+          <Tab label="Past Campaigns" {...a11yProps(1)} />
+          <Tab label="Live Campaigns" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-         <Styles> <Table columns={props.columns} data={counter.futurearr} /></Styles>
-      </TabPanel>
+      <TabPanel value={value} index={0}  >
+      <Box boxShadow={3}><Styles> <Table columns={props.columns} data={counter.futurearr} /></Styles>
+      </Box></TabPanel>
       <TabPanel value={value} index={1}>
-         <Styles> <Table columns={props.columns} data={counter.Currentarr} /></Styles>
-      </TabPanel>
+      <Box boxShadow={3}><Styles> <Table columns={props.columns} data={counter.pastarr} /></Styles>
+      </Box></TabPanel>
       <TabPanel value={value} index={2}>
-          <Styles> <Table columns={props.columns} data={counter.pastarr} /></Styles>
-      </TabPanel>
+      <Box boxShadow={3}><Styles> <Table columns={props.columns} data={counter.Currentarr} /></Styles>
+      </Box></TabPanel>
     </div>
   );
 }

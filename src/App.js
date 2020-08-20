@@ -11,15 +11,18 @@ import {
   MuiPickersUtilsProvider,
   // KeyboardDatePicker
 } from '@material-ui/pickers';
-import { Button, makeStyles } from "@material-ui/core";
+import { Button, makeStyles, Paper } from "@material-ui/core";
 // import DatePicker from "react-datepicker";
  import ModalComp from '../src/Modal';
 // import "react-datepicker/dist/react-datepicker.css";
 import money from '../src/Assest/money.png'
 import increase from '../src/Assest/increase.png'
+import csv from '../src/Assest/csv.png'
+import pubg from '../src/Assest/pubg-48237.png'
 import DatePicker from "../src/Datepicker";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import HeaderComp from '../src/Header';
 const useStyles = makeStyles({
   container: {
     display: "flex",
@@ -37,12 +40,12 @@ function App({fetchProduct}) {
       "region": "US",
       "createdOn": 1596542760000,
       "price": {
-        "name" : "Price",
+        "name" : "Pricing",
         "onemonth" : '$100',
         "sixmonth" : '$100',
         "oneyear" : '$100',
       },
-      "csv": "Some CSV link for Whatsapp",
+      "csv": "CSV ",
       "report": "Some report link for Whatsapp",
       "image_url":"Some image url of the campaign" 
     },
@@ -51,12 +54,12 @@ function App({fetchProduct}) {
       "region": "CA, FR",
       "createdOn": 1556543760000,
       "price": {
-        "name" : "Price",
+        "name" : "Pricing",
         "onemonth" : '$100',
         "sixmonth" : '$100',
         "oneyear" : '$100',
       },
-      "csv": "Some CSV link for Super Jewels Quest",
+      "csv": "CSV",
       "report": "Some report link for Super Jewels Ques",
       "image_url":"Some image url of the campaign"
     },
@@ -65,12 +68,12 @@ function App({fetchProduct}) {
       "region": "FR",
       "createdOn": 1599542960000,
       "price": {
-        "name" : "Price",
+        "name" : "Pricing",
         "onemonth" : '$100',
         "sixmonth" : '$100',
         "oneyear" : '$100',
       },
-      "csv": "Some CSV link for Mole Slayer",
+      "csv": "CSV",
       "report": "Some report link for Mole Slayer",
       "image_url":"Some image url of the campaign"
     },
@@ -79,12 +82,12 @@ function App({fetchProduct}) {
       "region": "US",
       "createdOn": 1596642760000,
       "price": {
-        "name" : "Price",
+        "name" : "Pricing",
         "onemonth" : '$100',
         "sixmonth" : '$100',
         "oneyear" : '$100',
       },
-      "csv": "Some CSV link for Mancala Mix",
+      "csv": "CSV",
       "report": "Some report link for Mancala Mix",
       "image_url":"Some image url of the campaign"
     },{
@@ -92,12 +95,12 @@ function App({fetchProduct}) {
       "region": "FR",
       "createdOn": 1696542760000,
       "price": {
-        "name" : "Price",
+        "name" : "Pricing",
         "onemonth" : '$100',
         "sixmonth" : '$100',
         "oneyear" : '$100',
       },
-      "csv": "Some CSV link for Mole Slayer",
+      "csv": "CSV",
       "report": "Some report link for Mole Slayer",
       "image_url":"Some image url of the campaign"
     },
@@ -106,12 +109,12 @@ function App({fetchProduct}) {
       "region": "US",
       "createdOn": 1796542760000,
       "price": {
-        "name" : "Price",
+        "name" : "Pricing",
         "onemonth" : '$100',
         "sixmonth" : '$100',
         "oneyear" : '$100',
       },
-      "csv": "Some CSV link for Mancala Mix",
+      "csv": "CSV",
       "report": "Some report link for Mancala Mix",
       "image_url":"Some image url of the campaign"
     }
@@ -310,8 +313,8 @@ function App({fetchProduct}) {
           fontWeight: 'bolder',
         },
         
-      Cell:row=>(<Grid><Grid>{row.row.original.name}</Grid>
-                            <Grid className="fontweigh">{row.row.original.region}</Grid></Grid>)
+      Cell:row=>(<Grid container><Grid><img src={pubg} height={40} alt="money" /></Grid><Grid><Grid>{row.row.original.name}</Grid>
+                            <Grid className="fontweigh">{row.row.original.region}</Grid></Grid></Grid>)
      
       },
       {
@@ -327,6 +330,8 @@ function App({fetchProduct}) {
         Header: "Action",
         accessor: "csv",
         className:'Header',
+        Cell:row=>  (<Grid container><Grid><img src={csv} height={40} alt="money" /></Grid><label>CSV</label></Grid>),
+       
          style: {
           fontWeight: 'bolder',
         },
@@ -364,8 +369,15 @@ function App({fetchProduct}) {
 
   return (
     <div>
+         <HeaderComp/>
+         <Grid className="papersiz">
+         <Grid className="manage">Manage Campaigns</Grid>
+         <Grid>
          <SimpleTabs  fetchProduct={fetchProduct} columns={columns} pastarr={pastarr} futurearr={futurearr}  currentarr={currentarr} />
-         <ModalComp ref={textInput}/>
+         </Grid>
+         <Grid><ModalComp ref={textInput}/>
+         </Grid>
+         </Grid>
        </div>
    
    

@@ -2,6 +2,7 @@ import React,{useImperativeHandle,forwardRef} from 'react';
 import Modal from 'react-modal';
  import './App.css';
  import Grid from '@material-ui/core/Grid';
+ import pubg1 from '../src/Assest/pubg-48237.png'
 const customStyles = {
   content : {
     top                   : '50%',
@@ -58,21 +59,30 @@ const  ModalComp = forwardRef((props,ref)=> {
            {
    (() => {
       if (modalrow) {
-         return ( <Grid>
+         return ( <Grid container>
+                      <Grid container>
+                      <Grid><img src={pubg1} height={40} alt="money" /></Grid>
+                     
                         <Grid><Grid>{modalrow.row.original.name}</Grid>
                         <Grid className="fontweigh">{modalrow.row.original.region}</Grid></Grid>
+                        </Grid>
+                  <Grid>
                     <h2> {modalrow.row.original.price.name}</h2>
+                    </Grid>
                    <Grid container>
                        <Grid lg={6}>1-Week  -  1 Month</Grid>
-                       <Grid lg={6}>{modalrow.row.original.price.onemonth}</Grid>
+                       <Grid lg={3}></Grid>
+                       <Grid lg={3}>{modalrow.row.original.price.onemonth}</Grid>
                    </Grid>
                    <Grid container>
                        <Grid lg={6}> 6 Months</Grid>
-                       <Grid lg={6}>{modalrow.row.original.price.sixmonth}</Grid>
+                       <Grid lg={3}></Grid>
+                       <Grid lg={3}>{modalrow.row.original.price.sixmonth}</Grid>
                    </Grid>
                    <Grid container>
                        <Grid lg={6}>1 Year</Grid>
-                       <Grid lg={6}>{modalrow.row.original.price.oneyear}</Grid>
+                       <Grid lg={3}></Grid>
+                       <Grid lg={3}>{modalrow.row.original.price.oneyear}</Grid>
                    </Grid>
                    
                 </Grid>);

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTable } from "react-table";
-
+import Box from '@material-ui/core/Box';
 export default function Table({ columns, data }) {
   // Use the useTable Hook to send the columns and data to build the table
   const {
@@ -20,7 +20,7 @@ export default function Table({ columns, data }) {
     - react-table doesn't have UI, it's headless. We just need to put the react-table props from the Hooks, and it will do its magic automatically
   */
   return (
-      
+  
     <table {...getTableProps()}>
       <thead>
         {headerGroups.map(headerGroup => (
@@ -50,5 +50,6 @@ export default function Table({ columns, data }) {
         })}
       </tbody>
     </table>
+
   );
 }
